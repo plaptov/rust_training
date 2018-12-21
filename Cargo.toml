@@ -1,0 +1,7 @@
+[package]
+name = "rust_training"
+version = "0.1.0"
+authors = ["pLaptov"]
+edition = "2018"
+
+[dependencies]
