@@ -7,10 +7,10 @@ pub trait CoordinateCalculator<T> where T : Coordinate {
     fn distance(start: &T, finish: &T) -> f32;
 }
 
-#[derive(Eq, PartialEq)]
+#[derive(Eq, PartialEq, Hash, Clone)]
 pub struct Coordinate2Dint {
-    x: i32,
-    y: i32,
+    pub x: i32,
+    pub y: i32,
 }
 
 impl Coordinate for Coordinate2Dint {

@@ -1,3 +1,4 @@
+use std::fmt;
 use crate::coordinates::*;
 use crate::nodes::*;
 
@@ -13,13 +14,19 @@ pub struct BaseEdge<'a, T> where T : BaseNode {
     pub weight: f32,
 }
 
+impl<'a, T> fmt::Display for BaseEdge<'a, T> where T : BaseNode + fmt::Display {
+    fn fmt(&self, f : &mut fmt::Formatter) -> std::fmt::Result {
+        write!(f, "{} -> {}\t{}", &self.start, &self.finish, &self.weight)
+    }
+}
+
 pub type Edge2dInt<'a> = BaseEdge<'a, Node2dInt>;
 
 impl<'a> Edge<'a, Node2dInt> for Edge2dInt<'a> {
     fn get_start(&self) -> &Node2dInt {
         self.start
     }
-
+ 
     fn get_finish(&self) -> &Node2dInt {
         self.finish
     }

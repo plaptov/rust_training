@@ -1,3 +1,4 @@
+use std::fmt::*;
 use crate::coordinates::*;
 
 pub trait BaseNode {
@@ -6,7 +7,7 @@ pub trait BaseNode {
     fn get_position(&self) -> &Self::P;
 }
 
-#[derive(Eq, PartialEq)]
+#[derive(Eq, PartialEq, Hash)]
 pub struct Node<T> where T : Coordinate {
     pub position: T,
 }
@@ -18,11 +19,21 @@ impl <T> BaseNode for Node<T> where T : Coordinate {
 }
 
 impl <T> Node<T> where T : Coordinate {      
-    pub fn new(position: T) -> Node<T> {
-        Node {
-            position : position,
+
+}
+
+pub type Node2dInt = Node<Coordinate2Dint>;
+
+impl Node2dInt {
+    pub fn new(position: Coordinate2Dint) -> Node2dInt {
+        Node2dInt {
+            position : position
         }
     }
 }
 
-pub type Node2dInt = Node<Coordinate2Dint>;
+impl Display for Node2dInt {
+    fn fmt(&self, f : &mut Formatter) -> std::fmt::Result {
+        write!(f, "[{}, {}]", &self.position.x, &self.position.y)
+    }
+}
