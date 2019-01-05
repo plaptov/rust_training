@@ -22,7 +22,7 @@ impl GraphFactory {
         let mut hashmap = HashMap::new();
 
         for &n in nodes {
-            hashmap.insert(n, edges.iter().filter(|x| x.get_start() == n).map(|x| *x).collect());
+            hashmap.insert(n, edges.iter().filter(|x| x.get_start() == n).cloned().collect());
         };
 
         Graph {
