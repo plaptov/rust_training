@@ -27,7 +27,7 @@ pub type Node2dInt = Node<Coordinate2Dint>;
 impl Node2dInt {
     pub fn new(position: Coordinate2Dint) -> Node2dInt {
         Node2dInt {
-            position : position
+            position
         }
     }
 }

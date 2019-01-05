@@ -19,8 +19,8 @@ impl Coordinate for Coordinate2Dint {
 impl Coordinate2Dint {
     pub fn new(x: i32, y: i32) -> Coordinate2Dint {
         Coordinate2Dint {
-            x: x,
-            y: y,
+            x,
+            y,
         }
     }
 }

@@ -13,7 +13,7 @@ impl NaivePathFinder {
     {
         let mut edges : Vec<&E> = vec!{};
         let mut nodes : Vec<&N> = vec!{};
-        let mut weigth = 0.0;
+        let mut sum_weigth = 0.0;
         let mut cur_from : &'a N = from;
 
         loop {
@@ -24,7 +24,7 @@ impl NaivePathFinder {
                     cur_from = edge.get_finish();
                     edges.push(edge);
                     nodes.push(cur_from);
-                    weigth += edge.get_weight();
+                    sum_weigth += edge.get_weight();
                     if cur_from == to {
                         break;
                     }
@@ -33,9 +33,9 @@ impl NaivePathFinder {
         }
 
         Path {
-            edges : edges,
-            nodes : nodes,
-            sum_weigth : weigth,
+            edges,
+            nodes,
+            sum_weigth,
         }
     }
 }
